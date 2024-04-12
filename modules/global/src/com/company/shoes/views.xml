@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="shoes$Sale" name="on-delete-sale">
+        <property name="amount"/>
+        <property name="product" view="_minimal">
+            <property name="amount"/>
+        </property>
+    </view>
+</views>

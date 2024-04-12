@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://productEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.shoes.web.screens.product">
+    <data>
+        <instance id="productDc"
+                  class="com.company.shoes.entity.Product">
+            <view extends="_local">
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox" spacing="true">
+        <scrollBox id="scrollBox" spacing="true">
+            <form id="form" dataContainer="productDc">
+                <column width="350px">
+                    <textField id="nameField" property="name"/>
+                    <lookupField id="typeField" property="type"/>
+                    <textField id="brandField" property="brand"/>
+                    <textField id="sizeField" property="size"/>
+                    <lookupField id="genderAgeField" property="genderAge"/>
+                    <colorPicker id="colorField" property="color"/>
+                    <lookupField id="seasonField" property="season"/>
+                    <textField id="productYearField" property="productYear"/>
+                    <textField id="guaranteeField" property="guarantee"/>
+                    <textField id="codeField" property="code"/>
+                    <currencyField id="priceField" property="price"/>
+                    <textField id="amountField" property="amount"/>
+                </column>
+            </form>
+        </scrollBox>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://saleBrowse.caption"
+        focusComponent="salesTable"
+        messagesPack="com.company.shoes.web.screens.sale">
+    <data readOnly="true">
+        <collection id="salesDc"
+                    class="com.company.shoes.entity.Sale">
+            <view extends="_local">
+                <property name="product" view="_minimal">
+                    <property name="amount"/>
+                </property>
+                <property name="total"/>
+            </view>
+            <loader id="salesDl">
+                <query>
+                    <![CDATA[select e from shoes$Sale e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="salesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salesTable"
+                dataLoader="salesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salesTable"
+                    width="100%"
+                    dataContainer="salesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="product"/>
+                <column id="date" type="date" dateFormat="dd/MM/yyyy" resolution="DAY"/>
+                <column id="amount"/>
+                <column id="price" caption="msg://saleBrowse.price.caption"/>
+                <column id="total" caption="msg://saleBrowse.total.caption"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="salesTable.create"/>
+                <button id="editBtn" action="salesTable.edit"/>
+                <button id="removeBtn" action="salesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
