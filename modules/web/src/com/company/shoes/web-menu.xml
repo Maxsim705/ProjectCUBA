@@ -3,6 +3,10 @@
     <menu id="application-shoes" insertBefore="administration" caption="mainMsg://menu_config.application-shoes">
         <item screen="shoes$Product.browse" caption="mainMsg://menu_config.shoes$Product.browse"/>
         <item screen="shoes$Sale.browse" caption="mainMsg://menu_config.shoes$Sale.browse"/>
-        <item screen="screen1" caption="mainMsg://menu_config.screen1"/>
+    </menu>
+    <menu id="administration" caption="mainMsg://menu_config.administration">
+        <item id="sec$User.browse"/>
+        <item id="sec$Group.browse"/>
+        <item id="sec$Role.browse"/>
     </menu>
 </menu-config>
